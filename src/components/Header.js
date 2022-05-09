@@ -20,11 +20,14 @@ function Header() {
           }}
         >
           <Typography
+            onClick={() => window.scroll(0, 0)}
             sx={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              fontFamily: "Kanit ,sans-serif",
+              fontFamily: "Montserrat ,sans-serif",
+              cursor: "pointer",
+
               fontSize: {
                 lg: 40,
                 md: 35,

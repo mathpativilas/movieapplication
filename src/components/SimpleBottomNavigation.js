@@ -11,12 +11,12 @@ function SimpleBottomNavigation() {
     <BottomNavigation
       showLabels
       sx={{
-        width: "500px",
+        zIndex: 100,
+        width: "100%",
         position: "fixed",
-        bottom: "10px",
+        bottom: 0,
         left: 0,
         backgroundColor: "#2d313a",
-        display: { sm: "none" },
       }}
     >
       <BottomNavigationAction

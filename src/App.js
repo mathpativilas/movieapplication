@@ -12,12 +12,13 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header />
 
       <Stack
         sx={{
           paddingTop: { xs: "80px", sm: "100px" },
+          paddingBottom: "100px",
         }}
       >
         <Routes>
@@ -29,8 +30,9 @@ function App() {
       </Stack>
 
       <SimpleBottomNavigation />
-    </>
+    </div>
   );
 }
 
 export default App;
+
