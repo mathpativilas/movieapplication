@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, Grid, Badge } from "@mui/material";
 import React from "react";
 import { img_300 } from "./config";
+import { unavailable } from "./config";
 
 function TrendingConent({ title, poster, id, media, rating, date }) {
   return (
@@ -34,7 +35,7 @@ function TrendingConent({ title, poster, id, media, rating, date }) {
             borderRadius: "10px",
           }}
           alt={title}
-          src={`${img_300}/${poster}`}
+          src={poster ? `${img_300}/${poster}` : unavailable}
         />
         <Badge
           badgeContent={rating}
