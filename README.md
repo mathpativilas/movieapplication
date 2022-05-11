@@ -5,7 +5,7 @@ https://favmovieshub.netlify.app/
 
 
 
-<img src="./public/avtar.jpg" width="128"/>
+<img src="./public/readmeimage.png" width="628px"/>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
