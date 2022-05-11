@@ -25,7 +25,8 @@ function Header() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              fontFamily: "Montserrat ,sans-serif",
+              fontFamily: "Ubuntu, sans-serif",
+
               cursor: "pointer",
 
               fontSize: {

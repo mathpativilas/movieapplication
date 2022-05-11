@@ -39,6 +39,7 @@ function Movies() {
           color: "white",
           textAlign: "center",
           fontSize: { xs: "25px", sm: "40px" },
+          fontFamily: "Ubuntu, sans-serif",
         }}
       >
         Movies

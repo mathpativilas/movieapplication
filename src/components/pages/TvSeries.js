@@ -36,6 +36,7 @@ function TvSeries() {
           color: "white",
           textAlign: "center",
           fontSize: { xs: "25px", sm: "40px" },
+          fontFamily: "Ubuntu, sans-serif",
         }}
       >
         Discover Series
@@ -62,8 +63,8 @@ function TvSeries() {
             />
           );
         })}
-        <TrendingPagination numofpages={numofpages} setpage={setpage} />
       </Grid>
+      <TrendingPagination numofpages={numofpages} setpage={setpage} />
     </>
   );
 }

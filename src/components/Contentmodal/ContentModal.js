@@ -130,10 +130,16 @@ export default function ContentModal({ children, media, id }) {
                   </Box>
                 </Box>
 
-                <Box ml={1} width={{ sm: "100%", md: "60%" }}>
+                <Box
+                  ml={1}
+                  width={{ sm: "100%", md: "60%" }}
+                  sx={{
+                    fontFamily: "Ubuntu, sans-serif",
+                  }}
+                >
                   <Typography
                     sx={{
-                      fontSize: { xs: "20px", sm: "26px" },
+                      fontSize: { xs: "20px", sm: "29px" },
                     }}
                   >
                     {content.title || content.name} (
@@ -153,6 +159,7 @@ export default function ContentModal({ children, media, id }) {
                       backgroundColor: "#39445a",
                       color: "white",
                       marginTop: "10px",
+                      height: { xs: "100px", sm: "auto" },
                     }}
                   >
                     <CardContent
