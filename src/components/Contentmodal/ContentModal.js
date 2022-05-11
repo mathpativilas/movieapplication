@@ -97,7 +97,7 @@ export default function ContentModal({ children, media, id }) {
           <Fade in={open}>
             <Mybox
               sx={{
-                padding: { xs: "40px", sm: "40px", md: "40px" },
+                padding: { xs: "40px", sm: "40px", md: "20px" },
               }}
             >
               <Box
@@ -107,12 +107,18 @@ export default function ContentModal({ children, media, id }) {
                   flexDirection: { xs: "column", sm: "column", md: "row" },
                 }}
               >
-                <Box>
-                  <Box display={{ xs: "none", sm: "none", md: "flex" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box display={{ xs: "none", sm: "none", md: "block" }}>
                     <img
                       src={`${img_500}/${content.poster_path}`}
                       alt=""
-                      width="80%"
+                      width="90%"
                     />
                   </Box>
                   <Box display={{ xs: "", sm: "", md: "none" }}>
@@ -124,8 +130,12 @@ export default function ContentModal({ children, media, id }) {
                   </Box>
                 </Box>
 
-                <Box ml={1} width={{ sm: "100%", md: "65%" }}>
-                  <Typography variant="h3">
+                <Box ml={1} width={{ sm: "100%", md: "60%" }}>
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "20px", sm: "26px" },
+                    }}
+                  >
                     {content.title || content.name} (
                     {(
                       content.first_air_date ||
@@ -134,18 +144,27 @@ export default function ContentModal({ children, media, id }) {
                     ).substring(0, 4)}
                     )
                   </Typography>
-                  <Typography variant="body2">{content.tagline}</Typography>
+                  <Typography pt={1} variant="body2">
+                    {content.tagline}
+                  </Typography>
 
                   <Card
                     sx={{
                       backgroundColor: "#39445a",
                       color: "white",
+                      marginTop: "10px",
                     }}
                   >
-                    <CardContent>{content.overview}</CardContent>
+                    <CardContent
+                      sx={{
+                        fontSize: { sm: "10px", md: "18px" },
+                      }}
+                    >
+                      {content.overview}
+                    </CardContent>
                   </Card>
 
-                  <Box>
+                  <Box mt={2}>
                     <Carousel media={media} id={id} />
                   </Box>
 

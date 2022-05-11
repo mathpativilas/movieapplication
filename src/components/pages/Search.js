@@ -30,7 +30,7 @@ function Search() {
       },
     },
   });
-  console.log(content);
+
   const fetchSearch = async () => {
     try {
       const { data } = await axios.get(
@@ -55,10 +55,10 @@ function Search() {
   return (
     <>
       <Typography
-        variant="h5"
         sx={{
           color: "white",
           textAlign: "center",
+          fontSize: { xs: "25px", sm: "40px" },
         }}
       >
         SEARCH

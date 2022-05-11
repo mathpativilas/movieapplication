@@ -32,10 +32,10 @@ function TvSeries() {
   return (
     <>
       <Typography
-        variant="h5"
         sx={{
           color: "white",
           textAlign: "center",
+          fontSize: { xs: "25px", sm: "40px" },
         }}
       >
         Discover Series

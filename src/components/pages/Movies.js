@@ -35,10 +35,10 @@ function Movies() {
   return (
     <>
       <Typography
-        variant="h5"
         sx={{
           color: "white",
           textAlign: "center",
+          fontSize: { xs: "25px", sm: "40px" },
         }}
       >
         Movies
@@ -61,7 +61,7 @@ function Movies() {
               title={item.title || item.name}
               poster={item.poster_path}
               date={item.release_date || item.first_air_date}
-              media={"tv" || "movie"}
+              media="movie"
             />
           );
         })}
