@@ -51,6 +51,8 @@ export default function ContentModal({ children, media, id }) {
       )
       .then((response) => {
         setvideo(response.data.results[0]?.key);
+      }) .catch((err) => {
+        console.log(err);
       });
 
     // eslint-disable-next-line
