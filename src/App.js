@@ -10,6 +10,7 @@ import Search from "./components/pages/Search";
 import { Stack } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 
+
 function App() {
   return (
     <div className="app">

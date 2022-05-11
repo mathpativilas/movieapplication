@@ -2,21 +2,25 @@ import {
   TextField,
   Typography,
   Box,
+  Grid,
   createTheme,
   ThemeProvider,
   Button,
   Tabs,
   Tab,
-  Stack,
 } from "@mui/material";
 import React from "react";
+
 import SearchIcon from "@mui/icons-material/Search";
+import axios from "axios";
+import TrendingConent from "./../TrendingConent";
+import TrendingPagination from "./../pagination/TrendingPagination";
 function Search() {
   const [type, settype] = React.useState(0);
   const [page, setpage] = React.useState(1);
-  const [searchtext, setsearchtext] = React.useState();
-  const [content, setcontent] = React.useState();
-  const [numofpage, setnumofpages] = React.useState();
+  const [searchtext, setsearchtext] = React.useState("");
+  const [content, setcontent] = React.useState([]);
+  const [numofpages, setnumofpages] = React.useState();
 
   const darktheme = createTheme({
     palette: {
@@ -26,6 +30,28 @@ function Search() {
       },
     },
   });
+  console.log(content);
+  const fetchSearch = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
+          process.env.REACT_APP_API_KEY
+        }&language=en-US&query=${searchtext}&page=${page}`
+      );
+      setcontent(data.results);
+      setnumofpages(data.total_pages);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  React.useEffect(() => {
+    window.scroll(0, 0);
+    fetchSearch();
+    // eslint-disable-next-line
+  }, [type, page]);
+
   return (
     <>
       <Typography
@@ -46,9 +72,11 @@ function Search() {
             sx={{
               width: "78%",
             }}
+            onChange={(e) => setsearchtext(e.target.value)}
           />
           <Button
             variant="contained"
+            onClick={fetchSearch}
             sx={{
               marginLeft: "5px",
             }}
@@ -89,6 +117,27 @@ function Search() {
           />
         </Tabs>
       </ThemeProvider>
+      <Grid container justifyContent="center">
+        {content &&
+          content.map((item) => {
+            return (
+              <TrendingConent
+                key={item.id}
+                id={item.id}
+                rating={item.vote_average}
+                title={item.title || item.name}
+                poster={item.poster_path}
+                date={item.release_date || item.first_air_date}
+                media={type ? "tv" : "movie"}
+              />
+            );
+          })}
+      </Grid>
+
+      {searchtext && !content && <h2>No Series Found</h2>}
+      {numofpages > 1 && (
+        <TrendingPagination setPage={setpage} numOfPages={numofpages} />
+      )}
     </>
   );
 }

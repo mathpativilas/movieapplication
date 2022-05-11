@@ -14,6 +14,7 @@ function Movies() {
   const [selectedGenres, setselectedGenres] = React.useState([]);
   const [genres, setgenres] = React.useState([]);
   const genreforURL = useGenre(selectedGenres);
+
   console.log(genreforURL);
 
   console.log(genreforURL);
@@ -60,12 +61,12 @@ function Movies() {
               title={item.title || item.name}
               poster={item.poster_path}
               date={item.release_date || item.first_air_date}
-              media="movies"
+              media={"tv" || "movie"}
             />
           );
         })}
-        <TrendingPagination numofpages={numofpages} setpage={setpage} />
       </Grid>
+      <TrendingPagination numofpages={numofpages} setpage={setpage} />
     </>
   );
 }

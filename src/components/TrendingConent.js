@@ -1,33 +1,13 @@
-import { Box, Stack, Typography, Grid, Badge } from "@mui/material";
+import { Box, Stack, Typography, Badge } from "@mui/material";
 import React from "react";
 import { img_300 } from "./config";
 import { unavailable } from "./config";
+import ContentModal from "./Contentmodal/ContentModal";
 
 function TrendingConent({ title, poster, id, media, rating, date }) {
   return (
     <>
-      <Grid
-        item
-        lg={2}
-        md={3}
-        sm={4}
-        xs={5}
-        m={1}
-        sx={{
-          fontFamily: "Montserrat ,sans-serif",
-          backgroundColor: "#2d313a",
-          borderRadius: "10px",
-          marginTop: "10px",
-          padding: "5px",
-          position: "relative",
-          color: "#fff",
-          " &:hover": {
-            transition: "0.5s ease",
-            backgroundColor: "white",
-            color: "black",
-          },
-        }}
-      >
+      <ContentModal media={media} id={id}>
         <Box
           component="img"
           sx={{
@@ -67,7 +47,7 @@ function TrendingConent({ title, poster, id, media, rating, date }) {
           <span>{media === "tv" ? "Tv Serirs" : "Movie"}</span>
           <span>{date}</span>
         </Stack>
-      </Grid>
+      </ContentModal>
     </>
   );
 }
